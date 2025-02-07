@@ -26,6 +26,7 @@
     <ClInclude Include="shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="awesomeface.png" />
     <Content Include="container.jpg" />
     <Content Include="vertex.shader" />
   </ItemGroup>
