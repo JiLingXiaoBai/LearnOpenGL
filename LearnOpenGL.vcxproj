@@ -29,6 +29,8 @@
   <ItemGroup>
     <Content Include="awesomeface.png" />
     <Content Include="container.jpg" />
+    <Content Include="lightCube_fragment.shader" />
+    <Content Include="lightCube_vertex.shader" />
     <Content Include="vertex.shader" />
   </ItemGroup>
   <ItemGroup>
