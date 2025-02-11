@@ -24,10 +24,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="model.h" />
     <ClInclude Include="shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assimp-vc143-mtd.dll" />
     <Content Include="awesomeface.png" />
+    <Content Include="backpack\ao.jpg" />
+    <Content Include="backpack\backpack.mtl" />
+    <Content Include="backpack\backpack.obj" />
+    <Content Include="backpack\diffuse.jpg" />
+    <Content Include="backpack\normal.png" />
+    <Content Include="backpack\roughness.jpg" />
+    <Content Include="backpack\source_attribution.txt" />
+    <Content Include="backpack\specular.jpg" />
     <Content Include="container.jpg" />
     <Content Include="container2.png" />
     <Content Include="container2_specular.png" />
@@ -112,13 +123,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\assimp\include;C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\Program Files\Microsoft Visual Studio\Libraries\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -129,15 +140,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\assimp\include;C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\Program Files\Microsoft Visual Studio\Libraries\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,13 +157,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\assimp\include;C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\Program Files\Microsoft Visual Studio\Libraries\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,15 +174,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\assimp\include;C:\Program Files\Microsoft Visual Studio\Libraries\glm-1.0.1;C:\Program Files\Microsoft Visual Studio\Libraries\stb-master;C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\include;C:\Program Files\Microsoft Visual Studio\Libraries\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Microsoft Visual Studio\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\Program Files\Microsoft Visual Studio\Libraries\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
