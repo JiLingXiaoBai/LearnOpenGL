@@ -119,9 +119,11 @@
     <Content Include="base\lightCube_fragment.shader" />
     <Content Include="base\lightCube_vertex.shader" />
     <Content Include="base\vertex.shader" />
+    <Content Include="window.png" />
     <Content Include="container.jpg" />
     <Content Include="container2.png" />
     <Content Include="container2_specular.png" />
+    <Content Include="grass.png" />
     <Content Include="marble.jpg" />
     <Content Include="metal.png" />
   </ItemGroup>
