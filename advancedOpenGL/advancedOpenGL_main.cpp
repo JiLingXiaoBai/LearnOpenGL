@@ -59,53 +59,56 @@ int main()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glFrontFace(GL_CCW);
+
 
     Shader shader("advancedOpenGL/vertex.shader", "advancedOpenGL/fragment.shader");
 
     float cubeVertices[] = {
-        // positions          // texture Coords
-        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-        0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-        0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-        0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-
-        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-        0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-        0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
-        0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
-        -0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
-        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-
-        -0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-        -0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-        -0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-
-        0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-        0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-        0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-        0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-        0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-
-        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-        0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-        0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-
-        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-        0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-        0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-        0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-        -0.5f, 0.5f, 0.5f, 0.0f, 0.0f,
-        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f
+        // Back face
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, // Bottom-left
+        0.5f, 0.5f, -0.5f, 1.0f, 1.0f, // top-right
+        0.5f, -0.5f, -0.5f, 1.0f, 0.0f, // bottom-right         
+        0.5f, 0.5f, -0.5f, 1.0f, 1.0f, // top-right
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, // bottom-left
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, // top-left
+        // Front face
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, // bottom-left
+        0.5f, -0.5f, 0.5f, 1.0f, 0.0f, // bottom-right
+        0.5f, 0.5f, 0.5f, 1.0f, 1.0f, // top-right
+        0.5f, 0.5f, 0.5f, 1.0f, 1.0f, // top-right
+        -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, // top-left
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, // bottom-left
+        // Left face
+        -0.5f, 0.5f, 0.5f, 1.0f, 0.0f, // top-right
+        -0.5f, 0.5f, -0.5f, 1.0f, 1.0f, // top-left
+        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // bottom-left
+        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // bottom-left
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, // bottom-right
+        -0.5f, 0.5f, 0.5f, 1.0f, 0.0f, // top-right
+        // Right face
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, // top-left
+        0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // bottom-right
+        0.5f, 0.5f, -0.5f, 1.0f, 1.0f, // top-right         
+        0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // bottom-right
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, // top-left
+        0.5f, -0.5f, 0.5f, 0.0f, 0.0f, // bottom-left     
+        // Bottom face
+        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // top-right
+        0.5f, -0.5f, -0.5f, 1.0f, 1.0f, // top-left
+        0.5f, -0.5f, 0.5f, 1.0f, 0.0f, // bottom-left
+        0.5f, -0.5f, 0.5f, 1.0f, 0.0f, // bottom-left
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, // bottom-right
+        -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // top-right
+        // Top face
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, // top-left
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, // bottom-right
+        0.5f, 0.5f, -0.5f, 1.0f, 1.0f, // top-right     
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, // bottom-right
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, // top-left
+        -0.5f, 0.5f, 0.5f, 0.0f, 0.0f // bottom-left        
     };
     float planeVertices[] = {
         5.0f, -0.5f, 5.0f, 2.0f, 0.0f,
@@ -194,7 +197,7 @@ int main()
             float distance = glm::length(camera.Position - windows[i]);
             sorted[distance] = windows[i];
         }
-        
+
         //渲染指令
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -207,7 +210,7 @@ int main()
 
         shader.setMat4("view", view);
         shader.setMat4("projection", projection);
-        
+
         glBindVertexArray(cubeVAO);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, cubeTexture);
@@ -218,7 +221,7 @@ int main()
         model = glm::translate(model, glm::vec3(2.0f, 0.0f, 0.0f));
         shader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        
+
         glBindVertexArray(planeVAO);
         glBindTexture(GL_TEXTURE_2D, floorTexture);
         shader.setMat4("model", glm::mat4(1.0f));
